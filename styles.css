@@ -1,0 +1,277 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    margin: 0;
+    background: #ffffff;
+    color: #1e293b;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    color: #0f172a;
+}
+
+.subtitle {
+    color: #64748b;
+    font-size: 14px;
+    margin-bottom: 24px;
+}
+
+.card {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+    border: 1px solid #e2e8f0;
+}
+
+.card-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+}
+
+textarea {
+    width: 100%;
+    height: 220px;
+    font-family: 'SF Mono', Monaco, monospace;
+    font-size: 13px;
+    background: #ffffff;
+    color: #1e293b;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 16px;
+    box-sizing: border-box;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #6366f1;
+}
+
+button {
+    background: #6366f1;
+    color: white;
+    border: none;
+    padding: 12px 32px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #4f46e5;
+}
+
+button:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+}
+
+#log {
+    margin-top: 0;
+}
+
+.log-entry {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 6px 0;
+    font-size: 13px;
+    font-family: 'SF Mono', Monaco, monospace;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.log-entry:last-child {
+    border-bottom: none;
+}
+
+.badge {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.badge-download {
+    background: #065f46;
+    color: #6ee7b7;
+}
+
+.badge-fail {
+    background: #7f1d1d;
+    color: #fca5a5;
+}
+
+.badge-skip {
+    background: #78350f;
+    color: #fcd34d;
+}
+
+.badge-resolve {
+    background: #1e3a5f;
+    color: #93c5fd;
+}
+
+.badge-info {
+    background: #475569;
+    color: #cbd5e1;
+}
+
+.log-text {
+    color: #1e293b;
+    word-break: break-all;
+}
+
+.log-reason {
+    color: #64748b;
+    font-style: italic;
+}
+
+.spinner {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 2px solid #cbd5e1;
+    border-top-color: #6366f1;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.stats {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.stat-box {
+    background: #ffffff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.stat-label {
+    font-size: 11px;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-value {
+    font-size: 20px;
+    font-weight: 600;
+    color: #0f172a;
+    margin-top: 4px;
+}
+
+.progress-container {
+    margin-top: 16px;
+}
+
+.progress-bar-bg {
+    background: #e2e8f0;
+    border-radius: 8px;
+    height: 8px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    background: #6366f1;
+    height: 100%;
+    width: 0%;
+    transition: width 0.3s;
+}
+
+.progress-text {
+    font-size: 12px;
+    color: #64748b;
+    margin-top: 6px;
+}
+
+#tree {
+    font-family: 'SF Mono', Monaco, monospace;
+    font-size: 13px;
+}
+
+.tree-row {
+    padding: 5px 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.tree-row:last-child {
+    border-bottom: none;
+}
+
+.tree-branch {
+    color: #94a3b8;
+}
+
+.tree-key {
+    color: #1e293b;
+}
+
+.tree-reason {
+    color: #64748b;
+    font-style: italic;
+}
+
+.tree-badge {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 1px 7px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.tree-badge-download {
+    background: #065f46;
+    color: #6ee7b7;
+}
+
+.tree-badge-fail {
+    background: #7f1d1d;
+    color: #fca5a5;
+}
+
+.tree-badge-resolved {
+    background: #1e3a5f;
+    color: #93c5fd;
+}
+
+.tree-badge-omitted {
+    background: #f1f5f9;
+    color: #64748b;
+}
+
+.tree-scope {
+    color: #a78bfa;
+    font-size: 11px;
+    margin: 0 6px;
+}

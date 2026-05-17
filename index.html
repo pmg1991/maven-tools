@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Online Maven download tool - Download Maven JAR dependencies and transitive dependencies as ZIP. Free Maven repository downloader with conflict resolution.">
+<meta name="keywords" content="maven download, maven jar download, maven dependencies, maven repository, java dependencies, jar download, maven central, transitive dependencies">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Online Maven Download Tool">
+<meta property="og:description" content="Download Maven JAR dependencies and transitive dependencies as ZIP. Free Maven repository downloader with conflict resolution.">
+<meta property="og:type" content="website">
+<title>Online Maven Download Tool - Download JAR Dependencies</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="1aae1f77-bcee-446c-8c45-eda4c4462219"></script>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Online Maven Download Tool <iframe src="https://ghbtns.com/github-btn.html?user=pmg1991&repo=maven-tools&type=star&count=true&size=large" frameborder="0" scrolling="0" width="170" height="30" title="GitHub" style="vertical-align: middle; margin-left: 10px;"></iframe></h1>
+<div class="subtitle">Download Maven JAR dependencies and transitive dependencies as ZIP</div>
+<div class="subtitle" style="font-size: 12px; margin-top: -20px;">
+    No data retention - your XML is never stored
+</div>
+
+<div class="card">
+    <div class="card-title">Maven Dependencies XML</div>
+    <div style="font-size: 12px; color: #6b7280; margin-bottom: 10px;">Paste your Maven dependencies list in XML format below</div>
+    <textarea id="deps" placeholder="&lt;dependency&gt;&#10;    &lt;groupId&gt;com.example&lt;/groupId&gt;&#10;    &lt;artifactId&gt;example-lib&lt;/artifactId&gt;&#10;    &lt;version&gt;1.0.0&lt;/version&gt;&#10;&lt;/dependency&gt;&#10;&#10;&lt;dependency&gt;&#10;    &lt;groupId&gt;org.example&lt;/groupId&gt;&#10;    &lt;artifactId&gt;another-lib&lt;/artifactId&gt;&#10;    &lt;version&gt;2.0.0&lt;/version&gt;&#10;&lt;/dependency&gt;"></textarea>
+</div>
+
+<button id="btn" onclick="start()">Resolve Jars</button>
+<button id="btnPom" onclick="generatePom()" style="background: #475569; margin-left: 10px;">Generate POM</button>
+
+<div class="card" id="statusCard" style="display:none; margin-top: 20px;">
+    <div class="card-title">Status</div>
+    <div class="stats">
+        <div class="stat-box">
+            <div class="stat-label">Resolved</div>
+            <div class="stat-value" id="statResolved">0</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-label">Downloaded</div>
+            <div class="stat-value" id="statDownloaded">0</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-label">Skipped</div>
+            <div class="stat-value" id="statSkipped">0</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-label">Failed</div>
+            <div class="stat-value" id="statFailed">0</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-label">ZIP Size</div>
+            <div class="stat-value" id="statZipSize">0 MB</div>
+        </div>
+    </div>
+    <div class="progress-container">
+        <div class="progress-bar-bg">
+            <div class="progress-bar-fill" id="progressBar"></div>
+        </div>
+        <div class="progress-text" id="progressText">0 / 0</div>
+    </div>
+</div>
+
+<div class="card" id="treeCard" style="display:none; margin-top: 20px;">
+    <div class="card-title">Dependency Tree</div>
+    <div id="tree"></div>
+    <div style="margin-top: 20px;">
+        <button id="btnDownload" onclick="downloadAll()" style="display:none; background: #065f46;">Download All as ZIP</button>
+    </div>
+</div>
+
+<div class="card" id="logCard" style="display:none; margin-top: 20px;">
+    <div class="card-title">Activity Log</div>
+    <div id="log"></div>
+</div>
+
+</div>
+
+<script src="script.obfuscated.js"></script>
+
+</body>
+</html>
