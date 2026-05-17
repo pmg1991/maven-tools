@@ -45,6 +45,27 @@ A web-based Maven dependency resolver and JAR downloader that resolves transitiv
 3. Click "Download All as ZIP" to download all resolved JARs
 4. Click "Generate POM" to download a pom.xml file
 
+## When to use this tool vs Maven commands
+
+**Recommended Maven commands if you have a proper Maven project setup:**
+```bash
+# Download dependencies to local repository
+mvn dependency:go-offline
+
+# Copy dependencies to a directory (default: target/dependency)
+mvn dependency:copy-dependencies
+
+# Copy dependencies to custom directory
+mvn dependency:copy-dependencies -DoutputDirectory=/path/to/dir
+
+# Download all dependencies (including transitive)
+mvn dependency:resolve
+```
+
+**Use this tool when:**
+- You don't have a proper Maven/Gradle project setup
+- You need a quick way to download JARs without setting up a build
+
 ## Architecture
 
 - **netlify/functions/fetch.js**: Edge Function that fetches files from Maven Central with streaming support
